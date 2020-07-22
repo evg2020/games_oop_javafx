@@ -2,6 +2,7 @@ package ru.job4j.chess;
 
 import ru.job4j.chess.firuges.Cell;
 import ru.job4j.chess.firuges.Figure;
+import ru.job4j.chess.firuges.black.BishopBlack;
 
 import java.util.Arrays;
 
@@ -29,8 +30,17 @@ public class Logic {
         }
         figures[index] = figures[index].copy(dest);
     }
-
+// проверка наличия фигур на пути BishopBlack..класс BishopBlack подключен выше
     private boolean isFree(Cell[] steps) {
+        for(Cell cell : steps) {
+                for (int index = 0; index != figures.length; index++){
+                    if (figures[index].position().equals(cell)){
+                        return false;
+                    }
+                }
+
+            }
+
         return true;
     }
 
