@@ -2,8 +2,9 @@ package ru.job4j.chess;
 
 import ru.job4j.chess.firuges.Cell;
 import ru.job4j.chess.firuges.Figure;
-import ru.job4j.chess.firuges.black.BishopBlack;
+//import ru.job4j.chess.firuges.black.BishopBlack;
 
+import javax.crypto.spec.PSource;
 import java.util.Arrays;
 
 /**
@@ -26,22 +27,23 @@ public class Logic {
         int index = findBy(source);
         Cell[] steps = figures[index].way(source, dest);
         if (!isFree(steps)) {
-            throw new OccupiedCellException();
+            throw new OccupiedCellException( );
         }
         figures[index] = figures[index].copy(dest);
     }
-// проверка наличия фигур на пути BishopBlack..класс BishopBlack подключен выше
+// проверка наличия фигур на пути
     private boolean isFree(Cell[] steps) {
-        for(Cell cell : steps) {
-                for (int index = 0; index != figures.length; index++){
-                    if (figures[index].position().equals(cell)){
-                        return false;
-                    }
-                }
-
+        boolean res = false;
+        for(Cell cells : steps) {
+            int index = findBy(cells);
+            if (index >= 0) {
+                res = true;
             }
-
-        return true;
+        }
+                    /*for (int index = 0; index != figures.length; index++){
+                    if (figures[index].position().equals(cells)){
+                    return false;*/
+            return res;
     }
 
     public void clean() {
