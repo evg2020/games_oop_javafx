@@ -32,18 +32,18 @@ public class Logic {
         figures[index] = figures[index].copy(dest);
     }
 // проверка наличия фигур на пути
-    private boolean isFree(Cell[] steps) {
+    private boolean isFree(Cell[] steps) throws FigureNotFoundException {
         boolean res = false;
         for(Cell cells : steps) {
             int index = findBy(cells);
             if (index >= 0) {
                 res = true;
+                return res;
             }
         }
-                    /*for (int index = 0; index != figures.length; index++){
-                    if (figures[index].position().equals(cells)){
-                    return false;*/
-            return res;
+
+        throw new FigureNotFoundException();
+
     }
 
     public void clean() {
