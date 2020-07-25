@@ -38,10 +38,9 @@ public class Logic {
             int index = findBy(cells);
             if (index >= 0) {
                 res = true;
-                return res;
             }
+            return res;
         }
-
         throw new FigureNotFoundException();
 
     }
