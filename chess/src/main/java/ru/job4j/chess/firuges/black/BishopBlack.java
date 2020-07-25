@@ -10,6 +10,7 @@ public class BishopBlack implements Figure {
         position = ps;
     }
 
+
     @Override
     public Cell position() {
         return position;
@@ -18,23 +19,21 @@ public class BishopBlack implements Figure {
 
     @Override
     public Cell[] way(Cell source, Cell dest) {
-        if (isDiagonal(source, dest)) {
+        if (!isDiagonal(source, dest)) {
             throw new IllegalStateException(
                     String.format("Could not way by diagonal from %s to %s", source, dest)// метод выводит строку с заменой символов на значения
             );
         }
-
         int x = source.getX();
         int y = source.getY();
         int deltaX = Integer.compare(source.getX(),dest.getX());
         int deltaY = Integer.compare(source.getY(),dest.getY());
         int size = Math.abs(source.getX()- dest.getX()) ;
         Cell[] steps = new Cell[size];
-        for (int i = 0; i < size; i++) {
+         for (int i = 0; i < size; i++) {
             x += deltaX;
             y += deltaY;
             steps[i] = Cell.findBy(x, y);
-
         }
         return steps;
 
@@ -42,11 +41,11 @@ public class BishopBlack implements Figure {
     /*проверка диагонали, разница между координатами х и у начала и конца пути всегда будет
         равна друг друг*/
     public boolean isDiagonal(Cell source, Cell dest) {
-        boolean res = true;
+        boolean res = false;
         int deltaX = Math.abs(source.getX()-dest.getX());
         int deltaY = Math.abs(source.getY()-dest.getY());
         if( deltaX == deltaY){
-            res = false;
+            res = true;
         }
         return res;
     }

@@ -27,13 +27,13 @@ public enum Cell {
     }
 
     public static Cell findBy(int x, int y) {
-        Cell rsl = null;
+        Cell res = null;
         for (Cell cell : values()) {
             if (cell.x == x && cell.y == y) {
-                rsl = cell;
+                res = cell;
                 break;
             }
         }
-        return rsl;
+        return res;
     }
 }
