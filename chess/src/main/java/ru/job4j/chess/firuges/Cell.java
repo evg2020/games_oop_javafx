@@ -1,5 +1,6 @@
 package ru.job4j.chess.firuges;
 
+
 public enum Cell {
     A1(0, 7), A2(0, 6), A3(0, 5), A4(0, 4), A5(0, 3), A6(0, 2), A7(0, 1), A8(0, 0),
     B1(1, 7), B2(1, 6), B3(1, 5), B4(1, 4), B5(1, 3), B6(1, 2), B7(1, 1), B8(1, 0),
@@ -28,7 +29,7 @@ public enum Cell {
 
     public static Cell findBy(int x, int y) {
         Cell res = null;
-        for (Cell cell : values()) {
+        for (Cell cell : Cell.values()) {
             if (cell.x == x && cell.y == y) {
                 res = cell;
                 break;

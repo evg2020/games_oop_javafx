@@ -6,6 +6,7 @@ import ru.job4j.chess.firuges.Figure;
 
 
 
+
 import static org.hamcrest.core.Is.is;
 import static org.hamcrest.MatcherAssert.assertThat;
 import static org.junit.Assert.*;
@@ -23,9 +24,10 @@ public class BishopBlackTest {
     public void way() {
         Cell source = Cell.C1;
         Cell dest = Cell.A3;
+        BishopBlack bishopBlack = new BishopBlack(source);
+        Cell[]real = bishopBlack.way(source, dest);
         Cell[] expect = new Cell[]{Cell.B2, Cell.A3};
-        Cell[] real = new BishopBlack(source).way(source, dest);
-        assertThat(real, is(expect));
+          assertThat(real, is(expect));
     }
 
 
