@@ -36,7 +36,6 @@ public class BishopBlack implements Figure {
             steps[i] = Cell.findBy(x, y);
         }
         return steps;
-
     }
     /*проверка диагонали, разница между координатами х и у начала и конца пути всегда будет
         равна друг друг*/
